@@ -1,0 +1,80 @@
+---
+title: "conditionals_loops.qmd"
+author: "Amanda Overbye"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+
+
+
+```
+
+```{r}
+pm2_5 <- 200
+
+if ((pm2_5) < 100){
+  print("Low to moderate risk")
+  } else if (pm2_5 == 100 & pm2_5 <= 150){
+    print("Unhealthy for sensitive groups")
+  } else if (pm2_5 >= 150)
+      print ("health risk present")
+
+```
+
+
+
+
+```{r}
+#string detect function ----
+species <- "big whale"
+
+if (str_detect(species , "whale")) {
+
+  print(paste("You found a Whale!"))
+} 
+
+```
+
+```{r}
+#strings come in quotes
+#how to make prices vary on if or statements
+base_burrito <- 6.50
+main_ingredients <- "steak"
+
+  if (main_ingredients == "veggie"){
+    print(paste0("Carrot costs $", base_burrito))
+  } else if (main_ingredients == "chicken"){
+    print(paste0("this is chicken $", base_burrito + 10))
+  } else if (main_ingredients == "steak") {
+    print(paste0("is this working? for $", base_burrito + 200))
+    }
+  
+
+```
+
+#Seq_along
+```{r}
+fish <- c(8, 10, 12, 23)
+total_fish <- sum(fish)
+
+for (i in seq_along(fish)) {
+  print (fish [i]/total_fish)
+}
+
+```
+
+```{r}
+# paste is simple its just for two things in print statement 
+month.name
+
+for (i in seq_along(month.name)) {
+  print (paste("this month is", month.name[i]))
+}
+```
+
+

@@ -1,0 +1,51 @@
+---
+title: "conditionals_loops.qmd"
+author: "Amanda Overbye"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+
+
+
+```
+
+```{r}
+pm2_5 <- 48
+
+if ((pm2_5) > 100){
+  print("Low to moderate risk")
+  } else if (pm2_5 == 100 & pm2_5 <= 150){
+    print("Unhealthy for sensitive groups")
+  } else if (pm2_5 >= 150)
+      print ("health risk present")
+
+```
+
+```{r}
+species <- c("blue whale")
+species2 <- c("frog")
+for (whale in species){
+  print(paste("You found a Whale!"))
+} 
+
+for (whale in species2){
+  print(paste("You found a Whale!"))
+} 
+
+```
+```{r}
+base_burrito <- 6.50
+main_ingredients <- c("veggie", "chicken", "steak")
+for (i in seq_along(main_ingredients))
+  if (main_ingredients[i] == "veggie"){
+    print("Carrot")
+  } else if (main_ingredients[i] == "chicken"){
+    print("this is chicken")
+  } else print("is this working?")
+  
+
+```
+

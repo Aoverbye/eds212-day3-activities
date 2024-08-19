@@ -1,0 +1,42 @@
+---
+title: "toolik_chem.qmd"
+author: "Amanda Overbye"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+library(dplyr)
+```
+
+```{r}
+#assigning NAs
+
+toolik_biochem <- read_csv(here::here ("data", "2011_Kling_Akchem.csv")) |> clean_names()
+
+skimr::skim(toolik_biochem)
+
+toolik_biochem [toolik_biochem == "."] <- NA
+```
+
+```{r}
+inlet_biochem <- subset(toolik_biochem |>
+                          filter(site == "Toolik Inlet")
+                        |> select(p_h, doc_u_m, tdn_u_m))
+inlet_biochem <- inlet_biochem |> 
+  mutate(across(everything(), as.numeric))
+```
+
+```{r}
+# go to all comlumns (margin = 2) in inlet_biochem and use the function (mean)
+#on them na.re then dont pay to the NAs
+apply(X = inlet_biochem, MARGIN = 2, FUN = mean, na.rm = TRUE)
+map(.x = inlet_biochem, .f = mean, na.rm = TRUE)
+```
+
+## 
